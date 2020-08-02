@@ -1,5 +1,23 @@
-class dog (val name: String, var weight: Int, val breed: String) {
+class Dog (val name: String, weight_param: Int, breed_param: String) {
+
+    var activities = arrayOf("Walks")
+    val breed = breed_param.toUpperCase()
+
+    var weight = weight_param
+        set(value) {
+            if (value > 0) field = value
+        }
+
+    val weightInkgs: Double
+        get() = weight / 2.2
+
+
     fun bark () {
-    println (if ( weight < 20) "yip!" else "Woof!")
+        println(if(weight > 20 ) "Yip!" else "Woof!")
     }
+
+    init {
+        println("dog name ${name} has been created")
+    }
+
 }
